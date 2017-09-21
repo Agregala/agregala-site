@@ -11,11 +11,6 @@
             <div class="clearfix"></div>
             <?php 
                 	if(is_page('Medios')){
-                    //Get the correct taxonomy ID by slug
-                    $term = get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' ) );
- 
-                    //Get Taxonomy Meta
-                    $saved_data = get_tax_meta($term->term_id,'ba_url_coletivo');
             ?>
                 	<div class="clearfix"></div><br>
                 	<div class="col-xs-12">
@@ -28,12 +23,17 @@
                         $contador = 0;
                         foreach ( $categories as $category ) {
                             $contador = $contador+1; 
+                            $saved_data = get_tax_meta($category->term_id,'ba_url_coletivo');
                         ?>
                         <div id="medio-contenet" class="col-md-6">
 							<span class="icon-colectivo"></span>
                 			<p class="titulo-note"><?php echo $category->name; ?></p>
                 			<p class="lugar-fecha" style="padding-left: 46px;"></p>
                 			<div class="col-xs-12 sin-padding">
+                                <div class="col-xs-12">
+                                    <p style="font-size: 12px;font-family: 'montserratregular' !important;"><?php echo $category->description; ?></p>
+                                </div>
+                                <div class="clearfix"></div>
                 				<div class="col-xs-6">
                 					<a class="linked" href="<?php echo $saved_data ; ?>" target="_blank"><?php echo get_option('fullby_sitio'); ?></a>
                 				</div>
