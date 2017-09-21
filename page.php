@@ -25,15 +25,18 @@
                         foreach ( $categories as $category ) {
                             $contador = $contador+1; 
                             $saved_data = get_tax_meta($category->term_id,'ba_url_coletivo');
+                            $url_logos = get_tax_meta($category->term_id,'ba_url_logo_coletivo');
                         ?>
                         <div id="medio-contenet" class="col-md-6">
-							<span class="icon-colectivo"></span>
+							<?php 
+                                echo "<span class='icon-colectivo' style='right: 0px;top: 0px;position: absolute;background: url(".$url_logos.");background-size: 100%;'></span>";
+                            ?>
                 			<p class="titulo-note"><?php echo $category->name; ?></p>
                 			<p class="lugar-fecha" style="padding-left: 46px;"></p>
                 			<div class="col-xs-12 sin-padding">
                                 <div class="col-xs-12">
                                     <br>
-                                    <p style="font-size: 12px;font-family: 'montserratregular' !important;"><?php echo $category->description; ?></p>
+                                    <p style="margin-left: -13px;font-size: 12px;font-family: 'montserratregular' !important;"><?php echo $category->description; ?></p>
                                     <br>
                                 </div>
                                 <div class="clearfix"></div>

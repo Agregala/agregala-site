@@ -31,6 +31,7 @@ if (is_admin()){
   
   //text field
   $my_meta->addText($prefix.'url_coletivo',array('name'=> __('Link / URL ','tax-meta-url')));
+  $my_meta->addText($prefix.'url_logo_coletivo',array('name'=> __('Link / URL del logo ','tax-meta-url')));
   //textarea field
   // $my_meta->addTextarea($prefix.'textarea_field_id',array('name'=> __('My Textarea ','tax-meta')));
   //checkbox field

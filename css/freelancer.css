@@ -395,14 +395,15 @@ footer p span{
   border-bottom: 1px solid #d1d1d1;
 }
 .icon-colectivo{
-  background-image: url('../img/icon.png');
-  background-size: 100% 100%;
-  width: 32px;
-  height: 32px;
+  float: right;
+  width: 100px;
+  height: 100px;
   display: inline-block;
-  margin-right: 10px;
+  margin-right: 0px;
   position: relative;
-  top: 18px;
+  position: absolute;
+  right: 0px;
+  top: 0px;
 }
 .icon-faces{
   background-image: url('../img/face-single.png');
@@ -1087,7 +1088,8 @@ fieldset[disabled] .btn-success.active {
     margin-right: 10px;
   }
 #medio-contenet .titulo-note{
-  width: 85%;
+  width: 47%;
+    float: left;
 }
   .linked{
     display: block;
