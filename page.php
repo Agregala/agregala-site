@@ -20,6 +20,7 @@
                             'orderby' => 'name',
                             'parent'  => 0
                         ) );
+                        $url_sites = get_site_url();
                         $contador = 0;
                         foreach ( $categories as $category ) {
                             $contador = $contador+1; 
@@ -40,7 +41,7 @@
                 					<a class="linked" href="<?php echo $saved_data ; ?>" target="_blank"><?php echo get_option('fullby_sitio'); ?></a>
                 				</div>
                 				<div class="col-xs-6">
-                					<a class="linked" href="<?php echo get_category_link( $category->term_id );?>" ><?php echo get_option('fullby_publicacoes'); ?></a>
+                					<a class="linked" href="<?php echo $url_sites."/category/".$category->slug; ?>" ><?php echo get_option('fullby_publicacoes'); ?></a>
                 				</div>
                 			</div>
                 		</div>
