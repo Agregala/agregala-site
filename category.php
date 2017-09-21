@@ -5,7 +5,7 @@
 		<div class="col-md-8 sin-padding">
 			<div class="col-sm-3 sin-padding">
 				<ul class="nav nav-tabs tabs-left">
-	                <li class="medios active">Medios:</li>
+	                <li class="medios active">Medioss:</li>
 	                <?php obtenerListCategories();?>
 	            </ul>
 			</div>
@@ -14,7 +14,9 @@
                 	<div class="tab-pane active" id="<?php echo idAhora(); ?>">
                 		<?php 
 							$cat = get_category( get_query_var( 'cat' ) );
-						    $cat_slug = $cat->slug;
+						    echo "<h3 style='font-family: 'montserratregular';font-size: 17px;'>".$cat->name."</h3>";
+                            echo "<p style='font-size: 13px !important;'>".$cat->description."</p>";
+                            $cat_slug = $cat->slug;
                 			postsPorCategory($cat_slug);
                 		?>
                 	</div>

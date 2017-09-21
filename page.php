@@ -31,7 +31,9 @@
                 			<p class="lugar-fecha" style="padding-left: 46px;"></p>
                 			<div class="col-xs-12 sin-padding">
                                 <div class="col-xs-12">
+                                    <br>
                                     <p style="font-size: 12px;font-family: 'montserratregular' !important;"><?php echo $category->description; ?></p>
+                                    <br>
                                 </div>
                                 <div class="clearfix"></div>
                 				<div class="col-xs-6">
