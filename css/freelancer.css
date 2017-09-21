@@ -429,6 +429,7 @@ footer p span{
   font-size: 14px;
   line-height: 19px;
   font-family: 'montserratultra_light';
+  width: 100%;
 }
 .content-noticias:hover{
   background: #F2F2F2;
