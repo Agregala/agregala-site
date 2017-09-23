@@ -1587,7 +1587,7 @@ fieldset[disabled] .btn-success.active {
 }
 @media (min-width: 992px){
 	#medio-contenet {
-    	width:50% !important;
+    	width:100% !important;
 	}
 }
 @media (min-width: 1025px) { 
@@ -1612,6 +1612,7 @@ fieldset[disabled] .btn-success.active {
 		    width: 100% !important;
 			padding: 65px;
 			padding-top:20px !important;
+            height: 300px;
 	}
 }
 @media (max-width: 767px) { 
@@ -1645,6 +1646,7 @@ fieldset[disabled] .btn-success.active {
 	#medio-contenet{
 		padding-left: 10px !important;
    	 padding-right: 10px !important;
+        height: 350px;
 	}
 }
 
