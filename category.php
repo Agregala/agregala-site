@@ -5,7 +5,7 @@
 		<div class="col-md-8 sin-padding">
 			<div class="col-sm-3 sin-padding">
 				<ul class="nav nav-tabs tabs-left">
-	                <li class="medios active">Medioss:</li>
+	                <li class="medios active">Medios:</li>
 	                <?php obtenerListCategories();?>
 	            </ul>
 			</div>
