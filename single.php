@@ -37,7 +37,7 @@
 		</div>
 		<!-- content twitter -->
 		<div id="container-tweets-single" class="col-sm-4">
-			<h2>Publicaciones relacionadas</h2>
+			<h2>Otros posts</h2>
 			<?php
 					$tags = wp_get_post_tags($post->ID);
 					if ($tags) {
