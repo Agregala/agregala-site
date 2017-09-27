@@ -36,7 +36,7 @@
                 			<div class="col-xs-12 sin-padding">
                                 <div class="col-xs-12">
                                     <br>
-                                    <p style="margin-left: -13px;font-size: 12px;font-family: 'montserratregular' !important;"><?php echo $category->description; ?></p>
+                                    <p style="margin-left: -13px;font-size: 12px;font-family: 'montserratregular' !important;margin-top: 50px;"><?php echo $category->description; ?></p>
                                     <br>
                                 </div>
                                 <div class="clearfix"></div>
