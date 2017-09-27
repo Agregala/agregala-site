@@ -1,4 +1,9 @@
-<?php get_header(); ?>			
+<?php get_header(); ?>
+    <style>
+        img {
+            width: 100% !important;
+        }
+    </style>
 	<div class="container sin-padding">	
 		<div id="container-single" class="col-md-12 sin-padding">
 			<?php if (have_posts()) : while (have_posts()) : the_post();?>
