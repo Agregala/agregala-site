@@ -23,8 +23,10 @@
 	            </div>
 			</div>
             <div class="clearfix"></div>
-			<div class="nav-previous alignleft">&laquo;<?php next_posts_link( 'Noticias anteriores' ); ?></div>
-            <div class="nav-next alignright"><?php previous_posts_link( 'Noticias nuevas' ); ?>&raquo;</div>
+            <center>
+                <div class="nav-previous alignleft"><?php next_posts_link( '<< Noticias anteriores' ); ?></div>
+                <div class="nav-next alignright"><?php previous_posts_link( 'Noticias nuevas >>' ); ?></div>
+            </center>
 		</div>
 		<!-- content twitter -->
 		<div id="container-tweets" class="col-sm-4">

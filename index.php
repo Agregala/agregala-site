@@ -21,8 +21,10 @@
 	            </div>
 			</div>
             <div class="clearfix"></div>
-			<div class="nav-previous alignleft"><?php next_posts_link( '<< Noticias anteriores' ); ?></div>
-            <div class="nav-next alignright"><?php previous_posts_link( 'Noticias nuevas >>' ); ?></div>
+            <center>
+                <div class="nav-previous alignleft"><?php next_posts_link( '<< Noticias anteriores' ); ?></div>
+                <div class="nav-next alignright"><?php previous_posts_link( 'Noticias nuevas >>' ); ?></div>
+            </center>
 		</div>
 		<!-- content twitter -->
         <div class="clearfix hidden-lg hidden-md visible-sm visible-xs"></div>
