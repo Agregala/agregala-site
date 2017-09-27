@@ -100,7 +100,7 @@
             var count = 2;
             $(window).scroll(function(){
                   if  ($(window).scrollTop() == $(document).height() - $(window).height()){
-                     loadArticle(count);
+                     //loadArticle(count);
                      count++;
                   }
             }); 

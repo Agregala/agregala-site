@@ -1,4 +1,4 @@
-<?php get_header(); ?>		
+<?php get_header(); ?>	
 <div class="container sin-padding">
 	<div id="container-single" class="col-xs-12">
 		<!-- content facebook -->
@@ -22,9 +22,9 @@
                 	</div>
 	            </div>
 			</div>
-			<center>
-				<a id="inifiniteLoader"><img src="<?php bloginfo('template_directory'); ?>/img/ajax-loader.gif" /></a>
-			</center>
+            <div class="clearfix"></div>
+			<div class="nav-previous alignleft">&laquo;<?php next_posts_link( 'Noticias anteriores' ); ?></div>
+            <div class="nav-next alignright"><?php previous_posts_link( 'Noticias nuevas' ); ?>&raquo;</div>
 		</div>
 		<!-- content twitter -->
 		<div id="container-tweets" class="col-sm-4">

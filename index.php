@@ -20,9 +20,9 @@
                 	</div>
 	            </div>
 			</div>
-			<center>
-				<a id="inifiniteLoader"><img src="<?php bloginfo('template_directory'); ?>/img/ajax-loader.gif" /></a>
-			</center>
+            <div class="clearfix"></div>
+			<div class="nav-previous alignleft"><?php next_posts_link( '<< Noticias anteriores' ); ?></div>
+            <div class="nav-next alignright"><?php previous_posts_link( 'Noticias nuevas >>' ); ?></div>
 		</div>
 		<!-- content twitter -->
         <div class="clearfix hidden-lg hidden-md visible-sm visible-xs"></div>
