@@ -1,5 +1,8 @@
 <?php get_header(); ?>
     <style>
+        p > em > img,
+        p > img,
+        img[Attributes Style],
         img {
             width: 100% !important;
         }
