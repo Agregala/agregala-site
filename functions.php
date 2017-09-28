@@ -638,11 +638,13 @@ function obtenerTweets(){
         $geturl = "http://agrega.la/api";
         $obj = json_decode(file_get_contents($geturl), true);
         $totalobjetos = count($obj)-1; 
-        print_r($obj[$totalobjetos]['totalsitio']);
+        
+        $nuevototales = count($obj[$totalobjetos]['totalsitio']);
     
-        for($r=1;$r<=5;$r++){
+        for($r=0;$r<$nuevototales;$r++){
             if($r>1){
                 if($blog_id!=$r){
+                    echo $obj[$totalobjetos]['totalsitio'][$r]."ide";
                     switch_to_blog($r); //switched to blog id 2
 
                     $blog_details = get_blog_details($blog["blog_id"]);
