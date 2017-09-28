@@ -1765,3 +1765,11 @@ audio {
 .nav-next {
     margin-left: 20px;
 }
+
+.content-noticias p {
+    padding-left: 42px;
+    font-size: 14px;
+    line-height: 19px;
+    font-family: 'montserratultra_light';
+    width: 100%;
+}

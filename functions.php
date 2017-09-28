@@ -384,6 +384,10 @@ function postsPorBusqueda($fecha){
             /** Loop through each post for this month... */
             while($month_query->have_posts()) : $month_query->the_post();
             	$link =  get_permalink(get_the_ID());
+    
+                $thumbID = get_post_thumbnail_id( get_the_ID() );
+                $imgDestacada = wp_get_attachment_url( $thumbID );
+    
             	$posttags = get_the_tags();
 						if ($posttags) {
 						  foreach($posttags as $tag) {
@@ -398,7 +402,10 @@ function postsPorBusqueda($fecha){
             		echo '<div class="triangulo-equilatero-top-right '.$varSapn."-back".'"><span class="'.$varSapn.'"></span></div>';
 		                /** Output each article for this month */
 		            	echo '<span class="icon-colectivo"></span><h3 class="titulo-note">'.setCategory(get_the_ID()).'</h3>';  
-		            	echo '<p class="lugar-fecha">'.get_bloginfo('name').' / <span class="entry-date"> '.get_the_date().'</span></p>';  	
+		            	echo '<p class="lugar-fecha">'.get_bloginfo('name').' / <span class="entry-date"> '.get_the_date().'</span></p>'; 
+                        if( $imgDestacada != "" ){
+                            echo '<img style="margin-bottom: 10px;" src="'.$imgDestacada.'" />';
+                        }
 		                echo the_excerpt_max_charlength(200);
 		                echo '<a class="read-more" href="'.$link.'">Leer más</a>';
                 echo '</div>';
@@ -429,7 +436,11 @@ function postsPorCategory($fecha){
             /** Loop through each post for this month... */
             while($month_query->have_posts()) : $month_query->the_post();
             	$link =  get_permalink(get_the_ID());
-            	$posttags = get_the_tags();
+                
+                $thumbID = get_post_thumbnail_id( get_the_ID() );
+                $imgDestacada = wp_get_attachment_url( $thumbID );
+    
+                $posttags = get_the_tags();
 						if ($posttags) {
 						  foreach($posttags as $tag) {
 							if($tag->name=="Page"){
@@ -444,7 +455,10 @@ function postsPorCategory($fecha){
 		                /** Output each article for this month */
 		            	echo '<span class="icon-colectivo"></span><h3 class="titulo-note">'.setCategory(get_the_ID()).'</h3>';  
 		            	echo '<p class="lugar-fecha">'.get_bloginfo('name').' / <span class="entry-date"> '.get_the_date().'</span></p>';  	
-		                echo the_excerpt_max_charlength(200);
+		                if( $imgDestacada != "" ){
+                            echo '<img style="margin-bottom: 10px;" src="'.$imgDestacada.'" />';
+                        }
+                        echo the_excerpt_max_charlength(200);
 		                echo '<a class="read-more" href="'.$link.'">Leer más</a>';
                 echo '</div>';
             endwhile;
@@ -478,6 +492,10 @@ function postsPorFecha($year, $month){
 		            /** Loop through each post for this month... */
 		            while($month_query->have_posts()) : $month_query->the_post();
 		            	$link =  get_permalink(get_the_ID());
+    
+                        $thumbID = get_post_thumbnail_id( get_the_ID() );
+                        $imgDestacada = wp_get_attachment_url( $thumbID );
+    
 		            	$posttags = get_the_tags();
 						if ($posttags) {
 						  foreach($posttags as $tag) {
@@ -493,7 +511,10 @@ function postsPorFecha($year, $month){
 				                /** Output each article for this month */
 				            	echo '<span class="icon-colectivo"></span><h3 class="titulo-note">'.setCategory(get_the_ID()).'</h3>';  
 				            	echo '<p class="lugar-fecha">'.get_bloginfo('name').' / <span class="entry-date"> '.get_the_date().'</span></p>';  	
-				                echo the_excerpt_max_charlength(300);
+				                if( $imgDestacada != "" ){
+                                    echo '<img style="margin-bottom: 10px;" src="'.$imgDestacada.'" />';
+                                }
+                                echo the_excerpt_max_charlength(300);
 				                echo '<a class="read-more" target="_blank" href="'.$link.'">'.get_option('fullby_leermas').'</a>';
 
 		                echo '</div>';
