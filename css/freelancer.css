@@ -1811,3 +1811,26 @@ em {
     right: 0;
     left: 68%;
 }
+
+#container-tweets ul {
+    padding: 0px;
+    list-style: none;
+}
+
+#container-tweets ul li {
+    background: #f2f2f2;
+    padding: 10px;
+    margin-bottom: 5px;
+}
+#container-tweets ul li a{
+    font-size: 13px;
+    text-transform: capitalize;
+}
+
+#container-tweets h3{
+    font-family: 'montserratultra_light';
+}
+
+#container-tweets h3 > a{
+     color: black !important;
+}

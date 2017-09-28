@@ -628,81 +628,38 @@ function postsPorFecha($year, $month, $not){
 }
 
 function obtenerTweets(){
-	global $wpdb;
-	global $post;
+	    wp_reset_query();
+        wp_reset_postdata();
+        global $switched;
+    
 
-	$exwords = explode( ',', get_option('fullby_hashtag') );
-	$table_name = $wpdb->prefix.'tweets';
-	
-	for($iy=0;$iy<count($exwords);$iy++){
-	
+        for($r=1;$r<=5;$r++){
+            if($r>1){
+                switch_to_blog($r); //switched to blog id 2
+        
+                $blog_details = get_blog_details($blog["blog_id"]);
+                $url_site = $blog_details->siteurl;
+                $blogname = $blog_details->blogname;
 
-	$querystr = " SELECT * FROM $table_name WHERE link='".$exwords[$iy]."'";
+                echo '<h3><a href="'.$url_site.'">'.$blogname.'</a><h3>';
+                // Get latest Post
+                $latest_posts = get_posts('numberposts=2&orderby=date&order=DESC');
+                $cnt =0;
+                ?>
+                <ul>
+                    <?php foreach($latest_posts as $post) : setup_postdata($post);?>
+                        <li>
+                            <a href="<?php echo get_page_link($post->ID); ?>" title="<?php echo $post->post_title; ?>"><?php echo $post->post_title; ?></a>
+                        </li>                                
+                    <?php endforeach; ?>
+                </ul>
+                <?php
+                restore_current_blog();
+            }
+        }
+        
+}
 
-	$fivesdrafts = $wpdb->get_results($querystr, OBJECT);
-	
-	$contador = count($fivesdrafts);
-	if ( $contador > 0 )
-	{ ?>
-		<p class="titulohashtag">
-			<?php echo "#".$exwords[$iy]; ?>
-		</p>
-		<div style="display:none">
-			<!-- Carousel Buttons Next/Prev -->
-        	<a data-slide="prev" href="#quote-carousel" class="left carousel-control"><i class="fa fa-chevron-left"></i></a>
-        	<a data-slide="next" href="#quote-carousel" class="right carousel-control"><i class="fa fa-chevron-right"></i></a>			  
-  			
-		</div>
-		<div class="carousel slide" data-ride="carousel" id="quote-carousel">
-		  	<!-- Carousel Slides / Quotes -->
-		  	<div class="carousel-inner">
-				<?php
-				$contarQueote = 0;
-				foreach ( $fivesdrafts as $post )
-				{
-					setup_postdata( $post );
-					
-					$contarQueote = $contarQueote+1;
-					$imagenProfile = $post->imagen;
-					$findme   = 'https://';
-				    $pos = strpos($imagenProfile, $findme);
-				    if ($pos === false) {
-				      
-				      $mandar = "http://pbs.twimg.com/profile_images/".$imagenProfile;
-				    } else {
-				        $mandar = "http://abs.twimg.com/sticky/default_profile_images/default_profile_0_normal.png";
-				    }
-					?>
-					    <!-- Quote 1 -->
-					    <div class="item <?php if($contarQueote==1){echo "active"; }?>">
-					      <blockquote>
-					        <div class="row">
-					          <div class="col-sm-2 text-center sin-padding">
-					            <img class="img-circle" src="<?php echo $mandar; ?>" style="width: 50px;height:50px;">
-					            <!--<img class="img-circle" src="https://s3.amazonaws.com/uifaces/faces/twitter/kolage/128.jpg" style="width: 100px;height:100px;">-->
-					          </div>
-					          <div class="col-sm-10 container-tweets sin-padding">
-					            <p><?php echo $post->tweet; ?></p>
-					            <small><?php echo $post->nombre; ?>   <span><?php echo $post->usuario?></span></small>
-					          </div>
-					        </div>
-					      </blockquote>
-					    </div>
-			<?php } ?>
-			</div>
-		</div><div class="clearfix"></div><br><br>                       	
-	<?php 
-	}
-	else
-	{
-		?>
-		<h2>Not Found Tweets</h2>
-		<?php
-	}
-
-	}
-	?>
-<?php }
 function borrarTweet(){
 	global $wpdb;
 	$table_name = $wpdb->prefix.'tweets';

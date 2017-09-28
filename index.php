@@ -84,7 +84,7 @@
 			<h2>Otras voces</h2>
 			<p>
 				<?php
-					//obtenerTweets();
+					obtenerTweets();
 				?>
 			</p>
 		</div>
