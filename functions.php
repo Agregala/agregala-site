@@ -636,7 +636,7 @@ function obtenerTweets(){
     
         
         $geturl = "http://agrega.la/api";
-        $obj = json_decode(file_get_contents($geturl), true);
+        $obj = json_decode(file_get_contents($geturl));
         print_r($obj[0]['totalsitio']);
     
         for($r=1;$r<=5;$r++){
