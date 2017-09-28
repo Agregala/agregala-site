@@ -495,11 +495,17 @@ function postsPorCategory($fecha){
 
 function postsPorFecha($year, $month, $not){
     wp_reset_query();
+    
+    $paged = get_query_var('paged');
+    
+    if($paged<1){
+    
     $categories = get_categories( array(
 	    'orderby' => 'name',
 	    'parent'  => 0
 	) );
 	$contador = 0;
+    $arraieb = array();
 	foreach ( $categories as $category ) { 
 		$contador = $contador+1;
         $nameCategoria = $category->name;
@@ -517,12 +523,11 @@ function postsPorFecha($year, $month, $not){
         $lastposts = get_posts( $args1 );
         foreach($lastposts as $post) :
             $meta_key3 = $post->ID;
-            $not[] = $meta_key3;
+            $arraieb[] = $meta_key3;
             
             $linked =  get_permalink($meta_key3);
         
             //echo $meta_key3."<br>".$linked."<br>";
-        
             $thumbIDed = get_post_thumbnail_id( $meta_key3 );
             $imgDestacadaed = wp_get_attachment_url( $thumbIDed );
         
@@ -552,10 +557,19 @@ function postsPorFecha($year, $month, $not){
         endforeach;
 	
 	}
+    wp_reset_query();
+    
+    }
     
 	$yearGet = $year;
 	$monthGet = $month;
-    $paged = get_query_var('paged');
+    
+    
+    if($paged<1){
+        $not = $not; 
+    }else{
+       $not = $arraieb; 
+    }
 
 	        /** Grab any posts for this month (I've chosedn only the last 5 posts) */
 	        $args = array(
