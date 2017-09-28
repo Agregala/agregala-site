@@ -1774,6 +1774,8 @@ audio {
     font-family: 'montserratultra_light';
     width: 100%;
 }
+.youtube-player,
+iframe,
 .entry iframe{
     width: 100% !important;
 }
