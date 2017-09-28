@@ -368,11 +368,13 @@ function the_excerpt_max_charlength($charlength) {
 
 function postsPorBusqueda($fecha){
 	$fechaGet = $fecha;
+    $paged = get_query_var('paged');
 
 	/** Grab any posts for this month (I've chosedn only the last 5 posts) */
     $args = array(
 	 	's'           		=> $fechaGet,
 		'post_type'         => 'post',
+        'paged'             => $paged,
 		'post_status'       => 'publish',
 	  	'posts_per_page'	=> 10
 	);
@@ -420,10 +422,12 @@ function postsPorBusqueda($fecha){
 
 function postsPorCategory($fecha){
 	$fechaGet = $fecha;
+    $paged = get_query_var('paged');
 
-	/** Grab any posts for this month (I've chosedn only the last 5 posts) */
+	/** Grab any posts for this month (I've chosedn only the last 10 posts) */
     $args = array(
 	 	'category_name'     => $fechaGet,
+        'paged'             => $paged,
 		'post_type'         => 'post',
 		'post_status'       => 'publish',
 	  	'posts_per_page'	=> 10
@@ -473,12 +477,14 @@ function postsPorCategory($fecha){
 function postsPorFecha($year, $month){
 	$yearGet = $year;
 	$monthGet = $month;
+    $paged = get_query_var('paged');
 
 
 	        /** Grab any posts for this month (I've chosedn only the last 5 posts) */
 	        $args = array(
 	            'posts_per_page'    => 10,
 	            'post_type'         => 'post',
+                'paged'             => $paged,
 	            'post_status'       => 'publish',
 	            'order_by'          => 'date',
 	            'year'              => $yearGet,
