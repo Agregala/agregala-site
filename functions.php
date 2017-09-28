@@ -642,8 +642,9 @@ function obtenerTweets(){
         $nuevototales = count($obj[$totalobjetos]['totalsitio']);
     
         for($r=0;$r<$nuevototales;$r++){
-            if($r>0){
-                if($blog_id!=$obj[$totalobjetos]['totalsitio'][$r]){
+            echo "sitio actual: ".$blog_id."<br>";
+            echo "otro sitio: ".$obj[$totalobjetos]['totalsitio'][$r];
+            if($blog_id!=$obj[$totalobjetos]['totalsitio'][$r]){
                     
                     switch_to_blog($obj[$totalobjetos]['totalsitio'][$r]); //switched to blog id 2
 
@@ -666,7 +667,6 @@ function obtenerTweets(){
                     <?php
                     restore_current_blog();
                 }
-            }
         }
         
 }
