@@ -84,7 +84,7 @@
                             $caena = $subsite->path;
                             $resultado = str_replace("/", "", $caena);
                             ?>
-                            <option <?php if ($nombreSite==$resultado){ echo "selected";} ?> label="<?php echo "$resultado" ?>" data-back="<?php echo bloginfo('url')."/wp-content/themes/agrega.la-site/img/flat_".$resultado.".png" ?>" value="<?php echo bloginfo('url').$subsite->path; ?>">
+                            <option <?php if ($nombreSite==$resultado){ echo "selected";} ?> label="<?php echo "$resultado" ?>" data-back="<?php echo bloginfo('url')."/wp-content/themes/agregala-site/img/flat_".$resultado.".png" ?>" value="<?php echo bloginfo('url').$subsite->path; ?>">
                                 /<?php echo $resultado; ?><span></span>
                             </option>
                         <?php }
