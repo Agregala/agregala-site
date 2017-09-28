@@ -1776,3 +1776,7 @@ audio {
 .entry iframe{
     width: 100% !important;
 }
+
+em {
+    display: none !important;
+}
