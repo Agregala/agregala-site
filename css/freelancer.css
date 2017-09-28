@@ -1773,3 +1773,6 @@ audio {
     font-family: 'montserratultra_light';
     width: 100%;
 }
+.entry iframe{
+    width: 100% !important;
+}
