@@ -82,9 +82,10 @@
                         if($count>1){
                             //$subsite_id = get_object_vars($subsite)["blog_id"];
                             $caena = $subsite->path;
+                            echo $nombreSite;
                             $resultado = str_replace("/", "", $caena);
                             ?>
-                            <option <?php if ($nombreSite==$resultado){ echo "selected";} ?> label="<?php echo "$resultado" ?>" data-back="<?php echo bloginfo('url')."/wp-content/themes/agrega.la/img/flat_".$resultado.".png" ?>" value="<?php echo bloginfo('url').$subsite->path; ?>">
+                            <option <?php if ($nombreSite==$resultado){ echo "selected";} ?> label="<?php echo "$resultado" ?>" data-back="<?php echo bloginfo('url')."/wp-content/themes/agrega.la-site/img/flat_".$resultado.".png" ?>" value="<?php echo bloginfo('url').$subsite->path; ?>">
                                 /<?php echo $resultado; ?><span></span>
                             </option>
                         <?php }
