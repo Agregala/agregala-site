@@ -81,7 +81,7 @@
 		<!-- content twitter -->
         <div class="clearfix hidden-lg hidden-md visible-sm visible-xs"></div>
 		<div id="container-tweets" class="col-md-4">
-			<h2>Noticias de otros blog</h2>
+			<h2>Otras voces</h2>
 			<p>
 				<?php
 					//obtenerTweets();
