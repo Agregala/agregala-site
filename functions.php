@@ -404,7 +404,7 @@ function postsPorBusqueda($fecha){
 		            	echo '<span class="icon-colectivo"></span><h3 class="titulo-note">'.setCategory(get_the_ID()).'</h3>';  
 		            	echo '<p class="lugar-fecha">'.get_bloginfo('name').' / <span class="entry-date"> '.get_the_date().'</span></p>'; 
                         if( $imgDestacada != "" ){
-                            echo '<img style="margin-bottom: 10px;" src="'.$imgDestacada.'" />';
+                            echo '<img style="margin-bottom: 10px; width: 100%;" src="'.$imgDestacada.'" />';
                         }
 		                echo the_excerpt_max_charlength(200);
 		                echo '<a class="read-more" href="'.$link.'">Leer más</a>';
@@ -456,7 +456,7 @@ function postsPorCategory($fecha){
 		            	echo '<span class="icon-colectivo"></span><h3 class="titulo-note">'.setCategory(get_the_ID()).'</h3>';  
 		            	echo '<p class="lugar-fecha">'.get_bloginfo('name').' / <span class="entry-date"> '.get_the_date().'</span></p>';  	
 		                if( $imgDestacada != "" ){
-                            echo '<img style="margin-bottom: 10px;" src="'.$imgDestacada.'" />';
+                            echo '<img style="margin-bottom: 10px; width: 100%;" src="'.$imgDestacada.'" />';
                         }
                         echo the_excerpt_max_charlength(200);
 		                echo '<a class="read-more" href="'.$link.'">Leer más</a>';
@@ -512,7 +512,7 @@ function postsPorFecha($year, $month){
 				            	echo '<span class="icon-colectivo"></span><h3 class="titulo-note">'.setCategory(get_the_ID()).'</h3>';  
 				            	echo '<p class="lugar-fecha">'.get_bloginfo('name').' / <span class="entry-date"> '.get_the_date().'</span></p>';  	
 				                if( $imgDestacada != "" ){
-                                    echo '<img style="margin-bottom: 10px;" src="'.$imgDestacada.'" />';
+                                    echo '<img style="margin-bottom: 10px; width: 100%;" src="'.$imgDestacada.'" />';
                                 }
                                 echo the_excerpt_max_charlength(300);
 				                echo '<a class="read-more" target="_blank" href="'.$link.'">'.get_option('fullby_leermas').'</a>';
