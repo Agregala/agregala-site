@@ -642,12 +642,12 @@ function obtenerTweets(){
         $nuevototales = count($obj[$totalobjetos]['totalsitio']);
     
         for($r=0;$r<$nuevototales;$r++){
-            if($r>1){
-                if($blog_id!=$r){
-                    echo $obj[$totalobjetos]['totalsitio'][$r]."ide";
-                    switch_to_blog($r); //switched to blog id 2
+            if($r>0){
+                if($blog_id!=$obj[$totalobjetos]['totalsitio'][$r]){
+                    
+                    switch_to_blog($obj[$totalobjetos]['totalsitio'][$r]); //switched to blog id 2
 
-                    $blog_details = get_blog_details($blog["blog_id"]);
+                    $blog_details = get_blog_details($obj[$totalobjetos]['totalsitio'][$r]);
                     $url_site = $blog_details->siteurl;
                     $blogname = $blog_details->blogname;
 
