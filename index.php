@@ -37,12 +37,12 @@
                             $arryaNotin[] = get_the_ID();
                             if($contador<5){
                                 echo '<div class="col-md-3 col-sm-6">';
-                                    echo '<div class="content-noticias new-style-content" data-link="'.$link.'" data-span="'.$varSapn.'">';
+                                    echo '<div class="content-noticias new-style-content" data-link="'.get_post_permalink().'" ">';
                                         /** Output each article for this month */
                                         echo '<div class="back-img-noti" style="background-image: url('.$imgDestacada.');"></div>';
                                         //echo '<img style="margin-bottom: 10px; width: 100%;" src="'.$imgDestacada.'" />';
                                         echo '<h3 class="titulo-note-visualizar">'.get_the_title().'</h3>'; 	
-                                        echo '<a class="read-more floats" target="_blank" href="'.$link.'">'.get_option('fullby_leermas').'</a>';
+                                        echo '<a class="read-more floats" target="_blank" href="'.get_post_permalink().'">'.get_option('fullby_leermas').'</a>';
                                     echo '</div>';
                                 echo '</div>';
                             }else{
