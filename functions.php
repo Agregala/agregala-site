@@ -632,29 +632,37 @@ function obtenerTweets(){
         wp_reset_postdata();
         global $switched;
     
-
+        $blog_id = get_current_blog_id();
+    
+        
+        $geturl = "http://agrega.la/api";
+        $obj = json_decode(file_get_contents($geturl), true);
+        print_r($obj);
+    
         for($r=1;$r<=5;$r++){
             if($r>1){
-                switch_to_blog($r); //switched to blog id 2
-        
-                $blog_details = get_blog_details($blog["blog_id"]);
-                $url_site = $blog_details->siteurl;
-                $blogname = $blog_details->blogname;
+                if($blog_id!=$r){
+                    switch_to_blog($r); //switched to blog id 2
 
-                echo '<h3><a href="'.$url_site.'">'.$blogname.'</a><h3>';
-                // Get latest Post
-                $latest_posts = get_posts('numberposts=2&orderby=date&order=DESC');
-                $cnt =0;
-                ?>
-                <ul>
-                    <?php foreach($latest_posts as $post) : setup_postdata($post);?>
-                        <li>
-                            <a href="<?php echo get_page_link($post->ID); ?>" title="<?php echo $post->post_title; ?>"><?php echo $post->post_title; ?></a>
-                        </li>                                
-                    <?php endforeach; ?>
-                </ul>
-                <?php
-                restore_current_blog();
+                    $blog_details = get_blog_details($blog["blog_id"]);
+                    $url_site = $blog_details->siteurl;
+                    $blogname = $blog_details->blogname;
+
+                    echo '<h3><a href="'.$url_site.'">'.$blogname.'</a><h3>';
+                    // Get latest Post
+                    $latest_posts = get_posts('numberposts=2&orderby=date&order=DESC');
+                    $cnt =0;
+                    ?>
+                    <ul>
+                        <?php foreach($latest_posts as $post) : setup_postdata($post);?>
+                            <li>
+                                <a href="<?php echo get_page_link($post->ID); ?>" title="<?php echo $post->post_title; ?>"><?php echo $post->post_title; ?></a>
+                            </li>                                
+                        <?php endforeach; ?>
+                    </ul>
+                    <?php
+                    restore_current_blog();
+                }
             }
         }
         
