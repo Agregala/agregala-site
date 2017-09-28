@@ -54,7 +54,7 @@
             $background = "http://agrega.la/caribe/wp-content/uploads/sites/3/2017/09/back.jpg";
         }
     ?>
-    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom <?php echo $varAffix; ?>" style="background:url('<?php echo get_option('fullby_imagen-header'); ?>') no-repeat;background-size: cover;background-position: top;">
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom <?php echo $varAffix; ?>" style="background:url('<?php echo get_option('fullby_imagen-header'); ?>') no-repeat;background-size: cover;background-position: bottom;">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header page-scroll">
