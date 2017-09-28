@@ -474,14 +474,14 @@ function postsPorCategory($fecha){
     wp_reset_query();
 }
 
-function postsPorFecha($year, $month){
+function postsPorFecha($year, $month, $not){
 	$yearGet = $year;
 	$monthGet = $month;
     $paged = get_query_var('paged');
 
-
 	        /** Grab any posts for this month (I've chosedn only the last 5 posts) */
 	        $args = array(
+                'post__not_in'      => $not,
 	            'posts_per_page'    => 10,
 	            'post_type'         => 'post',
                 'paged'             => $paged,
