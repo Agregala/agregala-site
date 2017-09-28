@@ -366,6 +366,25 @@ function the_excerpt_max_charlength($charlength) {
 	}
 }
 
+function the_excerpt_max_charlength2($content,$charlength) {
+	$excerpt = $content;
+	$charlength++;
+
+	if ( mb_strlen( $excerpt ) > $charlength ) {
+		$subex = mb_substr( $excerpt, 0, $charlength - 5 );
+		$exwords = explode( ' ', $subex );
+		$excut = - ( mb_strlen( $exwords[ count( $exwords ) - 1 ] ) );
+		if ( $excut < 0 ) {
+			echo '<p class="contenido-note">'.mb_substr( $subex, 0, $excut );
+		} else {
+			echo '<p class="contenido-note">'.$subex;
+		}
+		echo '[...]'.'</p>';
+	} else {
+		echo '<p class="contenido-note">'.$excerpt.'</p>';
+	}
+}
+
 function postsPorBusqueda($fecha){
 	$fechaGet = $fecha;
     $paged = get_query_var('paged');
@@ -475,6 +494,65 @@ function postsPorCategory($fecha){
 }
 
 function postsPorFecha($year, $month, $not){
+    wp_reset_query();
+    $categories = get_categories( array(
+	    'orderby' => 'name',
+	    'parent'  => 0
+	) );
+	$contador = 0;
+	foreach ( $categories as $category ) { 
+		$contador = $contador+1;
+        $nameCategoria = $category->name;
+        //echo $nameCategoria;
+        $nameCategoriaID = get_cat_ID($nameCategoria);
+        $args1 = array( 
+            'post__not_in'      => $not,
+            'posts_per_page'    => 1,
+            'post_type'         => 'post',
+            'post_status'       => 'publish',
+            'order_by'          => 'date',
+            'category'          => $nameCategoriaID 
+        );
+
+        $lastposts = get_posts( $args1 );
+        foreach($lastposts as $post) :
+            $meta_key3 = $post->ID;
+            $not[] = $meta_key3;
+            
+            $linked =  get_permalink($meta_key3);
+        
+            //echo $meta_key3."<br>".$linked."<br>";
+        
+            $thumbIDed = get_post_thumbnail_id( $meta_key3 );
+            $imgDestacadaed = wp_get_attachment_url( $thumbIDed );
+        
+            $posttagsed = get_the_tags();
+            if ($posttagsed) {
+              foreach($posttagsed as $tage) {
+                if($tage->name=="Page"){
+                    $varSapne = "faceFondo";
+                }else{
+                    $varSapne = "rssFondo";
+                }
+              }
+            
+            }
+            echo '<div class="content-noticias" data-link="'.$linked.'" data-span="'.$varSapne.'">';
+                echo '<div class="triangulo-equilatero-top-right '.$varSapne."-back".'"><span class="'.$varSapne.'"></span></div>';
+                    /** Output each article for this month */
+                    echo '<span class="icon-colectivo"></span><h3 class="titulo-note">'.$nameCategoria.'</h3>';  
+                    echo '<p class="lugar-fecha">'.get_bloginfo('name').' / <span class="entry-date">'.get_the_date('',$meta_key3).'</span></p>';  	
+                    if( $imgDestacadaed != "" ){
+                        echo '<img style="margin-bottom: 10px; width: 100%;" src="'.$imgDestacadaed.'" />';
+                    }
+                    echo the_excerpt_max_charlength2($post->post_content,300);
+                    echo '<a class="read-more" target="_blank" href="'.$linked.'">'.get_option('fullby_leermas').'</a>';
+
+            echo '</div>';
+        endforeach;
+	
+	}
+    
 	$yearGet = $year;
 	$monthGet = $month;
     $paged = get_query_var('paged');
